@@ -879,7 +879,7 @@ void x4driver_data_ready(void)
     }
 
 
-    float32_t data_frame_normolized[fdata_count];
+    float32_t* data_frame_normolized = (float32_t*)malloc(sizeof(float)*fdata_count);
     //sleep(1);
     status = x4driver_read_frame_normalized(x4driver,&frame_counter,data_frame_normolized,fdata_count);
 
