@@ -1397,7 +1397,7 @@ int taskRadar(void)
 #endif
 
 
-    status=x4driver_set_frame_area(x4driver, 0.2, 3.2); // Observe from 0.2m to 3.2m.
+    status=x4driver_set_frame_area(x4driver, 0.3, 4.3); // Observe from 0.2m to 3.2m.
     if (status != XEP_ERROR_X4DRIVER_OK)
     {
 #ifdef DEBUG
