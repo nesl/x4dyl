@@ -1229,15 +1229,15 @@ void switchAnt(int rfNum)
 
 int taskRadar(void)
 {
-    int xgl_iter = 16;
-    int xgl_pulsestep = 1;
+    int xgl_iter = 12;
+    int xgl_pulsestep = 7;
     int xgl_dacmin = 949;//949;
     int xgl_dacmax = 1100;//1100
     xtx4_dac_step_t xgl_dacstep = DAC_STEP_1;
     float xgl_fps = 1000;
     int xgl_getiq = 1;
-    int xgl_sweep_trigger_control = SWEEP_TRIGGER_X4;
-    int xgl_tx_power = TX_POWER_HIGH;
+    xtx4_sweep_trigger_control_mode_t xgl_sweep_trigger_control = SWEEP_TRIGGER_X4;
+    xtx4_tx_power_t xgl_tx_power = TX_POWER_HIGH;
 
     printf("task_radar start!\n");
 
@@ -1504,7 +1504,7 @@ int taskRadar(void)
  /*   digitalWrite(IOctl, LOW);
     usleep(8000);
     digitalWrite(IOctl, HIGH);*/
-    digitalWrite(LED, High);
+    digitalWrite(LED, HIGH);
     for (;;)
     {
         gettimeofday(&end,NULL); //gettimeofday(&start,&tz);
@@ -1517,6 +1517,7 @@ int taskRadar(void)
 
            // return 0;
         }
+        frameend = frame_counter;
         // if(g_readDone == 1)
         // {
         //     g_readDone = 0;
@@ -1538,7 +1539,7 @@ int taskRadar(void)
         //    // digitalWrite(IOctl, HIGH);*/
             
 
-        }
+        // }
     }
 
 }
