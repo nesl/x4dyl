@@ -850,7 +850,7 @@ void x4driver_spi_init(void)
 int g_num_antnum = 0;
 uint32_t frame_counter=0;
 float32_t* output_data_buffer[30000] = {NULL};
-int max_number_of_frames = 12000;
+int max_number_of_frames = 15000;
 int number_of_cached_frames = 0;
 
 void x4driver_data_ready(void)
@@ -1229,12 +1229,12 @@ void switchAnt(int rfNum)
 
 int taskRadar(void)
 {
-    int xgl_iter = 12;
-    int xgl_pulsestep = 7;
+    int xgl_iter = 20;
+    int xgl_pulsestep = 2;
     int xgl_dacmin = 949;//949;
     int xgl_dacmax = 1100;//1100
     xtx4_dac_step_t xgl_dacstep = DAC_STEP_1;
-    float xgl_fps = 1000;
+    float xgl_fps = 1400;
     int xgl_getiq = 1;
     xtx4_sweep_trigger_control_mode_t xgl_sweep_trigger_control = SWEEP_TRIGGER_X4;
     xtx4_tx_power_t xgl_tx_power = TX_POWER_HIGH;
@@ -1499,14 +1499,15 @@ int taskRadar(void)
     struct timeval end;
     int framestart = 0;
     int frameend = 0;
-    gettimeofday(&start,NULL); //gettimeofday(&start,&tz);结果一样
-    // x4driver_start_sweep(x4driver);
+    // gettimeofday(&start,NULL); //gettimeofday(&start,&tz);结果一样
+    // // x4driver_start_sweep(x4driver);
  /*   digitalWrite(IOctl, LOW);
     usleep(8000);
     digitalWrite(IOctl, HIGH);*/
     digitalWrite(LED, HIGH);
     for (;;)
     {
+        /*
         gettimeofday(&end,NULL); //gettimeofday(&start,&tz);
         if((end.tv_sec - start.tv_sec )> 3)  // 3s to check frame_rate
         {
@@ -1517,7 +1518,9 @@ int taskRadar(void)
 
            // return 0;
         }
-        frameend = frame_counter;
+        frameend = frame_counter; */
+        
+        ;
         // if(g_readDone == 1)
         // {
         //     g_readDone = 0;
